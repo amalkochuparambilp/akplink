@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>User Not Found</title>
+  <style>
+    body {
+      background: #0f172a;
+      color: #f1f5f9;
+      font-family: system-ui, sans-serif;
+      text-align: center;
+      padding-top: 10vh;
+    }
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      width: 300px;
+      margin: auto;
+    }
+    a { color: #38bdf8; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>No profile for “{{ username }}”</h2>
+    <p>Did you mean?</p>
+
+    {% for s in suggestions %}
+      <p><a href="/{{ s }}/">{{ s }}</a></p>
+    {% empty %}
+      <p>No similar usernames found.</p>
+    {% endfor %}
+
+    <p><a href="/register/">Create your username</a></p>
+  </div>
+</body>
+</html>

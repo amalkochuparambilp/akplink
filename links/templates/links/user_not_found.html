@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>User Not Found</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 26px;
+      border-radius: 14px;
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #94a3b8;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    a {
+      display: inline-block;
+      padding: 10px 18px;
+      background: #38bdf8;
+      color: #0f172a;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      background: #0ea5e9;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>User Not Found</h1>
+    <p>No public link page exists for <strong>{{ username }}</strong>.</p>
+
+    <a href="/">Go Home</a>
+  </div>
+</body>
+</html>

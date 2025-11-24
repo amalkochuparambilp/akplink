@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Search Profiles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      padding: 30px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 20px;
+      background: #1e293b;
+      color: white;
+    }
+
+    .result {
+      background: #1e293b;
+      padding: 16px;
+      margin-bottom: 12px;
+      border-radius: 12px;
+    }
+
+    a { color: #38bdf8; }
+  </style>
+</head>
+<body>
+  <h1>Search Profiles</h1>
+
+  <form method="GET">
+    <input type="text" name="q" value="{{ query }}" placeholder="Search username or name...">
+  </form>
+
+  {% for p in results %}
+    <div class="result">
+      <a href="/{{ p.user.username }}/">
+        <strong>{{ p.display_name }}</strong> (@{{ p.user.username }})
+      </a>
+    </div>
+  {% empty %}
+    {% if query %}
+      <p>No profiles found.</p>
+    {% endif %}
+  {% endfor %}
+</body>
+</html>

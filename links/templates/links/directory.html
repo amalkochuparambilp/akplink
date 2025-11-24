@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>All Users</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      padding: 30px;
+    }
+
+    .user {
+      padding: 14px;
+      background: #1e293b;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+    a { color: #38bdf8; }
+  </style>
+</head>
+<body>
+  <h1>All Profiles</h1>
+
+  {% for p in pages %}
+    <div class="user">
+      <a href="/{{ p.user.username }}/">
+        <strong>{{ p.display_name }}</strong> (@{{ p.user.username }})
+      </a>
+    </div>
+  {% empty %}
+    <p>No users yet.</p>
+  {% endfor %}
+</body>
+</html>

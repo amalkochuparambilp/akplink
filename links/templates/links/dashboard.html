@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Your Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      margin: 0;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 420px;
+      margin: auto;
+      background: #1e293b;
+      padding: 26px;
+      border-radius: 16px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      border: 1px solid #334155;
+      background: #0f172a;
+      color: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: #38bdf8;
+      color: #0c0f17;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Edit Your Links</h2>
+
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Save Links</button>
+    </form>
+
+    <p style="margin-top: 16px; text-align:center;">
+      View your page: <a href="/{{ request.user.username }}/" style="color:#38bdf8;">/{{ request.user.username }}/</a>
+    </p>
+
+    <p style="text-align:center; margin-top:6px;">
+      <a href="/logout/" style="color:#f87171;">Logout</a>
+    </p>
+  </div>
+
+</body>
+</html>
